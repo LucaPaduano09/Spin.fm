@@ -1,0 +1,43 @@
+{
+  "name": "drop-fm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "@supabase/supabase-js": "^2.39.0",
+    "@supabase/ssr": "^0.1.0",
+    "stripe": "^14.14.0",
+    "@stripe/stripe-js": "^3.0.0",
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.6.1",
+    "next-auth": "^4.24.5",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0",
+    "lucide-react": "^0.330.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0",
+    "framer-motion": "^11.0.0",
+    "fast-xml-parser": "^4.3.4",
+    "qrcode.react": "^3.1.0",
+    "date-fns": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.0"
+  }
+}
