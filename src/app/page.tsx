@@ -65,8 +65,9 @@ const styles = `
   .d-nav-cta:hover { background: #fff; }
 
   /* HERO */
-  .d-hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
-  .d-hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 48px 80px; position: relative; z-index: 2; }
+  .d-hero { min-height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; }
+  .d-hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .d-hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 0 80px; position: relative; z-index: 2; }
   .d-section-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--acid); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
   .d-section-tag::before { content: ''; width: 32px; height: 1px; background: var(--acid); display: block; }
   .d-h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 10vw, 140px); line-height: 0.9; letter-spacing: 2px; margin-bottom: 32px; }
@@ -191,7 +192,7 @@ const styles = `
   .d-fade.visible { opacity: 1 !important; transform: translateY(0) !important; }
 
   @media (max-width: 768px) {
-    .d-hero { grid-template-columns: 1fr; }
+    .d-hero-inner { grid-template-columns: 1fr; padding: 0 24px; }
     .d-hero-right { display: none !important; }
     .d-nav-links { display: none !important; }
     .d-nav { padding: 20px 24px; }
@@ -320,6 +321,7 @@ export default function HomePage() {
 
         {/* ── HERO ─────────────────────────────────────────────── */}
         <section className="d-hero">
+          <div className="d-hero-inner">
           <div className="d-hero-left">
             <p className="d-section-tag">Il jukebox che guadagna</p>
             <h1 className="d-h1">
@@ -356,6 +358,7 @@ export default function HomePage() {
             <div className="d-glow-1" />
             <div className="d-glow-2" />
             <PhoneMockup />
+          </div>
           </div>
         </section>
 
