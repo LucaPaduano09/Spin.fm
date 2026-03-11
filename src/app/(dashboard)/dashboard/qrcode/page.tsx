@@ -39,7 +39,7 @@ export default function QRCodePage() {
     if (!active || !qrRef.current) return
     qrRef.current.innerHTML = ''
 
-    const url = `${window.location.origin}/venue/${active.slug}`
+    const url = `${window.location.origin}/venue/${active.id}`
 
     const tryGenerate = () => {
       if (window.QRCode) {
@@ -55,7 +55,7 @@ export default function QRCodePage() {
     setTimeout(tryGenerate, 100)
   }, [active])
 
-  const venueUrl = active ? `${typeof window !== 'undefined' ? window.location.origin : 'https://drop.fm'}/venue/${active.slug}` : ''
+  const venueUrl = active ? `${typeof window !== 'undefined' ? window.location.origin : 'https://drop.fm'}/venue/${active.id}` : ''
 
   const handlePrint = () => window.print()
 
