@@ -30,11 +30,16 @@ export default function VenuePage({ params }: { params: { venueId: string } }) {
 
   useEffect(() => {
     const load = async () => {
-      const { data: v } = await supabase.from('venues').select('id,name,settings').eq('id', params.venueId).single()
+      // params.venueId puo essere uno slug (es. "amnesia-milano") o un UUID
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(params.venueId)
+      const { data: v } = await supabase
+        .from('venues').select('id,name,settings')
+        .eq(isUuid ? 'id' : 'slug', params.venueId)
+        .single()
       setVenue(v)
       setVenueLoading(false)
       if (v) {
-        const { data: t } = await supabase.from('tracks').select('*').eq('venue_id', params.venueId).order('artist').limit(500)
+        const { data: t } = await supabase.from('tracks').select('*').eq('venue_id', v.id).order('artist').limit(500)
         setTracks(t ?? [])
       }
     }
