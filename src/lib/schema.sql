@@ -81,8 +81,13 @@ alter table song_requests enable row level security;
 create policy "venue_insert" on venues
   for insert with check (auth.uid() = owner_id);
 
+-- Owner can see all their venues
 create policy "venue_select" on venues
   for select using (auth.uid() = owner_id);
+
+-- Public can read a venue by id (needed for QR code landing page)
+create policy "venue_read_public" on venues
+  for select using (true);
 
 create policy "venue_update" on venues
   for update using (auth.uid() = owner_id);
